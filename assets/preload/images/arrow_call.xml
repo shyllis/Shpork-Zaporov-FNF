@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-16"?>
+<TextureAtlas imagePath="arrow_call.png">
+	<!-- Created with Adobe Flash CS6 version 12.0.0.481 -->
+	<!-- http://www.adobe.com/products/flash.html -->
+	<SubTexture name="down0000" x="0" y="0" width="53" height="64"/>
+	<SubTexture name="down10000" x="53" y="0" width="53" height="64"/>
+	<SubTexture name="downconf0000" x="106" y="0" width="55" height="66"/>
+	<SubTexture name="downconf0001" x="106" y="0" width="55" height="66"/>
+	<SubTexture name="downconf0002" x="161" y="0" width="53" height="64" frameX="-1" frameY="-1" frameWidth="55" frameHeight="66"/>
+	<SubTexture name="downconf0003" x="161" y="0" width="53" height="64" frameX="-1" frameY="-1" frameWidth="55" frameHeight="66"/>
+	<SubTexture name="endbad0000" x="0" y="66" width="20" height="29"/>
+	<SubTexture name="holdobed0000" x="20" y="66" width="20" height="28"/>
+	<SubTexture name="left0000" x="40" y="66" width="55" height="50"/>
+	<SubTexture name="left10000" x="95" y="66" width="55" height="51"/>
+	<SubTexture name="leftconf0000" x="150" y="66" width="57" height="53"/>
+	<SubTexture name="leftconf0001" x="150" y="66" width="57" height="53"/>
+	<SubTexture name="leftconf0002" x="0" y="119" width="55" height="50" frameX="-1" frameY="-2" frameWidth="57" frameHeight="53"/>
+	<SubTexture name="leftconf0003" x="0" y="119" width="55" height="50" frameX="-1" frameY="-2" frameWidth="57" frameHeight="53"/>
+	<SubTexture name="right0000" x="55" y="119" width="55" height="51"/>
+	<SubTexture name="right10000" x="110" y="119" width="55" height="50"/>
+	<SubTexture name="rightconf0000" x="0" y="170" width="56" height="52"/>
+	<SubTexture name="rightconf0001" x="0" y="170" width="56" height="52"/>
+	<SubTexture name="rightconf0002" x="55" y="119" width="55" height="51" frameX="0" frameY="-1" frameWidth="55" frameHeight="51"/>
+	<SubTexture name="rightconf0003" x="55" y="119" width="55" height="51" frameX="0" frameY="-1" frameWidth="55" frameHeight="51"/>
+	<SubTexture name="up0000" x="56" y="170" width="51" height="68"/>
+	<SubTexture name="up10000" x="107" y="170" width="51" height="67"/>
+	<SubTexture name="upconf0000" x="158" y="170" width="53" height="70"/>
+	<SubTexture name="upconf0001" x="158" y="170" width="53" height="70"/>
+	<SubTexture name="upconf0002" x="56" y="170" width="51" height="68" frameX="-1" frameY="-1" frameWidth="51" frameHeight="68"/>
+	<SubTexture name="upconf0003" x="56" y="170" width="51" height="68" frameX="-1" frameY="-1" frameWidth="51" frameHeight="68"/>
+</TextureAtlas>

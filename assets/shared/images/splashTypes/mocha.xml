@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-16"?>
+<TextureAtlas imagePath="mocha.png">
+	<!-- Created with Adobe Flash CS6 version 12.0.0.481 -->
+	<!-- http://www.adobe.com/products/flash.html -->
+	<SubTexture name="splash0000" x="0" y="0" width="96" height="101"/>
+	<SubTexture name="splash0001" x="96" y="0" width="96" height="101"/>
+	<SubTexture name="splash0002" x="0" y="101" width="96" height="101"/>
+	<SubTexture name="splash0003" x="96" y="101" width="96" height="101"/>
+	<SubTexture name="splash0004" x="0" y="202" width="96" height="101"/>
+</TextureAtlas>

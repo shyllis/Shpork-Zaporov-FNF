@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-16"?>
+<TextureAtlas imagePath="smile.png">
+	<!-- Created with Adobe Flash CS6 version 12.0.0.481 -->
+	<!-- http://www.adobe.com/products/flash.html -->
+	<SubTexture name="smile0000" x="0" y="0" width="83" height="134" frameX="-50" frameY="-2" frameWidth="151" frameHeight="136"/>
+	<SubTexture name="smile0001" x="83" y="0" width="85" height="133" frameX="-50" frameY="-2" frameWidth="151" frameHeight="136"/>
+	<SubTexture name="smile0002" x="168" y="0" width="85" height="132" frameX="-51" frameY="-3" frameWidth="151" frameHeight="136"/>
+	<SubTexture name="smile0003" x="253" y="0" width="87" height="131" frameX="-51" frameY="-3" frameWidth="151" frameHeight="136"/>
+	<SubTexture name="smile0004" x="340" y="0" width="88" height="128" frameX="-51" frameY="-5" frameWidth="151" frameHeight="136"/>
+	<SubTexture name="smile0005" x="0" y="134" width="89" height="125" frameX="-51" frameY="-6" frameWidth="151" frameHeight="136"/>
+	<SubTexture name="smile0006" x="89" y="134" width="90" height="121" frameX="-52" frameY="-8" frameWidth="151" frameHeight="136"/>
+	<SubTexture name="smile0007" x="179" y="134" width="91" height="117" frameX="-52" frameY="-10" frameWidth="151" frameHeight="136"/>
+	<SubTexture name="smile0008" x="270" y="134" width="91" height="113" frameX="-53" frameY="-12" frameWidth="151" frameHeight="136"/>
+	<SubTexture name="smile0009" x="361" y="134" width="94" height="107" frameX="-51" frameY="-15" frameWidth="151" frameHeight="136"/>
+	<SubTexture name="smile0010" x="0" y="259" width="99" height="101" frameX="-47" frameY="-18" frameWidth="151" frameHeight="136"/>
+	<SubTexture name="smile0011" x="99" y="259" width="105" height="95" frameX="-42" frameY="-21" frameWidth="151" frameHeight="136"/>
+	<SubTexture name="smile0012" x="204" y="259" width="110" height="87" frameX="-38" frameY="-25" frameWidth="151" frameHeight="136"/>
+	<SubTexture name="smile0013" x="314" y="259" width="115" height="80" frameX="-34" frameY="-28" frameWidth="151" frameHeight="136"/>
+	<SubTexture name="smile0014" x="0" y="360" width="120" height="72" frameX="-30" frameY="-32" frameWidth="151" frameHeight="136"/>
+	<SubTexture name="smile0015" x="120" y="360" width="124" height="64" frameX="-26" frameY="-36" frameWidth="151" frameHeight="136"/>
+	<SubTexture name="smile0016" x="244" y="360" width="129" height="56" frameX="-22" frameY="-40" frameWidth="151" frameHeight="136"/>
+	<SubTexture name="smile0017" x="373" y="360" width="132" height="51" frameX="-19" frameY="-41" frameWidth="151" frameHeight="136"/>
+	<SubTexture name="smile0018" x="0" y="432" width="134" height="45" frameX="-16" frameY="-42" frameWidth="151" frameHeight="136"/>
+	<SubTexture name="smile0019" x="134" y="432" width="136" height="44" frameX="-13" frameY="-43" frameWidth="151" frameHeight="136"/>
+	<SubTexture name="smile0020" x="270" y="432" width="138" height="44" frameX="-10" frameY="-44" frameWidth="151" frameHeight="136"/>
+	<SubTexture name="smile0021" x="0" y="477" width="139" height="45" frameX="-8" frameY="-45" frameWidth="151" frameHeight="136"/>
+	<SubTexture name="smile0022" x="139" y="477" width="139" height="45" frameX="-6" frameY="-46" frameWidth="151" frameHeight="136"/>
+	<SubTexture name="smile0023" x="278" y="477" width="139" height="45" frameX="-4" frameY="-47" frameWidth="151" frameHeight="136"/>
+	<SubTexture name="smile0024" x="0" y="522" width="138" height="45" frameX="-3" frameY="-48" frameWidth="151" frameHeight="136"/>
+	<SubTexture name="smile0025" x="138" y="522" width="136" height="44" frameX="-2" frameY="-50" frameWidth="151" frameHeight="136"/>
+	<SubTexture name="smile0026" x="274" y="522" width="134" height="46" frameX="-1" frameY="-49" frameWidth="151" frameHeight="136"/>
+	<SubTexture name="smile0027" x="0" y="568" width="132" height="52" frameX="0" frameY="-44" frameWidth="151" frameHeight="136"/>
+	<SubTexture name="smile0028" x="132" y="568" width="128" height="57" frameX="0" frameY="-40" frameWidth="151" frameHeight="136"/>
+	<SubTexture name="smile0029" x="260" y="568" width="124" height="65" frameX="0" frameY="-35" frameWidth="151" frameHeight="136"/>
+	<SubTexture name="smile0030" x="384" y="568" width="120" height="73" frameX="0" frameY="-31" frameWidth="151" frameHeight="136"/>
+	<SubTexture name="smile0031" x="0" y="641" width="116" height="81" frameX="0" frameY="-27" frameWidth="151" frameHeight="136"/>
+	<SubTexture name="smile0032" x="116" y="641" width="110" height="87" frameX="-1" frameY="-24" frameWidth="151" frameHeight="136"/>
+	<SubTexture name="smile0033" x="226" y="641" width="105" height="95" frameX="-1" frameY="-20" frameWidth="151" frameHeight="136"/>
+	<SubTexture name="smile0034" x="331" y="641" width="99" height="101" frameX="-2" frameY="-17" frameWidth="151" frameHeight="136"/>
+	<SubTexture name="smile0035" x="0" y="742" width="94" height="107" frameX="-3" frameY="-14" frameWidth="151" frameHeight="136"/>
+	<SubTexture name="smile0036" x="94" y="742" width="88" height="112" frameX="-4" frameY="-11" frameWidth="151" frameHeight="136"/>
+	<SubTexture name="smile0037" x="182" y="742" width="83" height="117" frameX="-4" frameY="-9" frameWidth="151" frameHeight="136"/>
+	<SubTexture name="smile0038" x="265" y="742" width="78" height="122" frameX="-5" frameY="-6" frameWidth="151" frameHeight="136"/>
+	<SubTexture name="smile0039" x="343" y="742" width="78" height="126" frameX="-6" frameY="-4" frameWidth="151" frameHeight="136"/>
+	<SubTexture name="smile0040" x="421" y="742" width="78" height="128" frameX="-6" frameY="-3" frameWidth="151" frameHeight="136"/>
+	<SubTexture name="smile0041" x="0" y="870" width="78" height="130" frameX="-6" frameY="-2" frameWidth="151" frameHeight="136"/>
+	<SubTexture name="smile0042" x="78" y="870" width="79" height="132" frameX="-6" frameY="-1" frameWidth="151" frameHeight="136"/>
+	<SubTexture name="smile0043" x="157" y="870" width="80" height="133" frameX="-5" frameY="0" frameWidth="151" frameHeight="136"/>
+	<SubTexture name="smile0044" x="237" y="870" width="80" height="134" frameX="-5" frameY="0" frameWidth="151" frameHeight="136"/>
+</TextureAtlas>
