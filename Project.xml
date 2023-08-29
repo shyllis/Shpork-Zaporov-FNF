@@ -55,7 +55,7 @@
 	<haxelib name="hxcpp-debug-server" if="desktop debug"/>
 	<haxelib name="extension-androidtools" if="android" />
 	
-	<haxelib name="discord_rpc" if="cpp"/>
+	<haxelib name="discord_rpc" if="desktop"/>
 
 	<!-- ______________________________ Haxedefines _____________________________ -->
 
