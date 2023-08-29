@@ -68,6 +68,9 @@ class DeathState extends MusicBeatState {
 			}});
 		});
 
+		#if mobile
+		addVirtualPad(BLANK, A_B);
+		#end
 		super.create();
 	}
 

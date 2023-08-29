@@ -27,6 +27,10 @@ class MainMenuState extends MusicBeatState {
 	var optionsanim:FlxSprite;
 
 	override function create() {
+		#if android
+		FlxG.android.preventDefaultKeys = [BACK];
+		#end
+
 		#if discord_rpc
 		DiscordClient.initialize();
 
