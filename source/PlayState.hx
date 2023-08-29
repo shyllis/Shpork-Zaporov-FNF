@@ -195,7 +195,7 @@ class PlayState extends MusicBeatState {
 
 		#if mobile
 		addHitbox(false);
-		addHitboxCamera();
+		addHitboxCamera(false);
 		#end
 
 		startCountdown();
@@ -207,15 +207,14 @@ class PlayState extends MusicBeatState {
 
 	function startCountdown():Void {
 		camHUD.visible = true;
+		#if mobile
+		hitbox.visible = true;
+		#end
 
 		generateStaticArrows(0);
 		generateStaticArrows(1);
 
 		startedCountdown = true;
-
-		#if mobile
-		hitbox.visible = true;
-		#end
 
 		var swagCounter:Int = 0;
 
