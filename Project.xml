@@ -15,6 +15,8 @@
 
 	<!--Desktop-specific-->
 	<window if="desktop" orientation="landscape" fullscreen="false" resizable="true" vsync="false"/>
+	<!--Mobile-specific-->
+	<window if="mobile" orientation="landscape" fullscreen="true" resizable="false" allow-shaders="true" require-shaders="true" allow-high-dpi="true" />
 
 	<!-- _____________________________ Path Settings ____________________________ -->
 
@@ -24,6 +26,7 @@
 
 	<classpath name="source" />
 
+	<assets path="mobile" rename="assets/mobile" if="mobile" /> <!-- in order to not have the mobile assets in another builds -saw -->
 	<assets path="assets/preload" rename="assets"/>
 	
 	<define name="PRELOAD_ALL" unless="web" />
@@ -50,6 +53,7 @@
 	<haxelib name="flixel-addons" />
 	<haxelib name="flixel-ui" />
 	<haxelib name="hxcpp-debug-server" if="desktop debug"/>
+	<haxelib name="extension-androidtools" if="android" />
 	
 	<haxelib name="discord_rpc" if="cpp"/>
 
@@ -63,6 +67,21 @@
 
 	<!--Enable this for Nape release builds for a serious peformance improvement-->
 	<haxedef name="NAPE_RELEASE_BUILD" unless="debug" />
+
+	<section if="android">
+		<config>
+			<!--Gradle-->
+			<android gradle-version="7.4.2" gradle-plugin="7.3.1" />
+
+			<!--Target SDK-->
+			<android target-sdk-version="29" if="${lime &lt; 8.1.0}" />
+		</config>
+	</section>
+
+	<section if="ios">
+		<!--Dependency--> 
+		<dependency name="Metal.framework" if="${lime &lt; 8.0.0}" />
+	</section>
 
 	<!-- _________________________________ Custom _______________________________ -->
 
