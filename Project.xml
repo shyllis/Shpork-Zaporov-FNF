@@ -26,7 +26,7 @@
 
 	<classpath name="source" />
 
-	<assets path="mobile" if="mobile" /> <!-- in order to not have the mobile assets in another builds -saw -->
+	<assets path="mobile" rename="assets/mobile" if="mobile" /> <!-- in order to not have the mobile assets in another builds -saw -->
 	<assets path="assets/preload" rename="assets"/>
 	
 	<define name="PRELOAD_ALL" unless="web" />
