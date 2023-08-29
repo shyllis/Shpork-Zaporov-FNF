@@ -112,10 +112,10 @@ class FlxVirtualPad extends FlxSpriteGroup
 	{
 		var graphic:FlxGraphic;
 
-		if (Assets.exists('mobile/${Graphic}.png'))
-			graphic = FlxG.bitmap.add('mobile/${Graphic}.png');
+		if (Assets.exists('assets/mobile/${Graphic}.png'))
+			graphic = FlxG.bitmap.add('assets/mobile/${Graphic}.png');
 		else
-			graphic = FlxG.bitmap.add('mobile/default.png');
+			graphic = FlxG.bitmap.add('assets/mobile/default.png');
 
 		var button:FlxButton = new FlxButton(X, Y);
 		button.frames = FlxTileFrames.fromGraphic(graphic, FlxPoint.get(Std.int(graphic.width / 3), graphic.height));
