@@ -24,6 +24,10 @@
 			"name": "flixel-addons",
 			"type": "haxelib"
 		},
+        {
+			"name": "flixel-ui",
+			"type": "haxelib"
+		},
 		{
 			"name": "discord_rpc",
 			"type": "haxelib"
