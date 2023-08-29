@@ -29,7 +29,6 @@ import Discord.DiscordClient;
 
 class PlayState extends MusicBeatState {
 	public static var SONG:SwagSong;
-	public static var deathCounter:Int = 0;
 
 	private var vocals:FlxSound;
 	private var vocalsFinished:Bool = false;
@@ -52,7 +51,6 @@ class PlayState extends MusicBeatState {
 	private var curSong:String = "";
 
 	private var health:Float = 2;
-	private var combo:Int = 0;
 
 	private var healthBar:FlxBar;
 
@@ -116,12 +114,12 @@ class PlayState extends MusicBeatState {
 		add(bg);
 
 		if (SONG.song.toLowerCase().startsWith('shpork')) {
-			boombox = new FlxSprite(360, 710);
+			boombox = new FlxSprite(390, 710);
 			boombox.frames = Paths.getSparrowAtlas('boombox');
 			boombox.animation.addByPrefix('sex', 'boombox', 24);
 			add(boombox);
 		} else if (SONG.song.toLowerCase().startsWith('govnoed')) {
-			gitara = new FlxSprite(330, 600);
+			gitara = new FlxSprite(330, 580);
 			gitara.frames = Paths.getSparrowAtlas('gitara');
 			gitara.animation.addByPrefix('sex', 'gitara', 24);
 			add(gitara);
@@ -551,8 +549,6 @@ class PlayState extends MusicBeatState {
 				vocals.stop();
 				FlxG.sound.music.stop();
 
-				deathCounter += 1;
-
 				FlxG.switchState(new DeathState());
 			}
 		}
@@ -649,8 +645,6 @@ class PlayState extends MusicBeatState {
 					if (daNote.tooLate) {
 						health -= 0.09;
 						vocals.volume = 0;
-						if (combo != 0)
-							combo = 0;
 					}
 
 					daNote.active = false;
@@ -686,7 +680,6 @@ class PlayState extends MusicBeatState {
 	#end
 
 	function endSong():Void {
-		deathCounter = 0;
 		canPause = false;
 		FlxG.sound.music.volume = 0;
 		vocals.volume = 0;
@@ -696,7 +689,7 @@ class PlayState extends MusicBeatState {
 		FlxG.switchState(new MainMenuState());
 	}
 
-	private function popUpScore(strumtime:Float, daNote:Note):Void {
+	private function calculateScore(strumtime:Float, daNote:Note):Void {
 		var noteDiff:Float = Math.abs(strumtime - Conductor.songPosition);
 		vocals.volume = 1;
 
@@ -806,20 +799,12 @@ class PlayState extends MusicBeatState {
 			if (!holdArray[spr.ID])
 				spr.animation.play('static');
 
-			if (spr.animation.curAnim.name == 'confirm') {
-				spr.centerOffsets();
-				spr.offset.x -= 13;
-				spr.offset.y -= 13;
-			} else 
-				spr.centerOffsets();
+			spr.centerOffsets();
 		});
 	}
 
 	function noteMiss(direction:Int = 1):Void {
 		health -= 0.1;
-		if (combo != 0)
-			combo = 0;
-
 		songScore -= 10;
 
 		vocals.volume = 0;
@@ -829,8 +814,7 @@ class PlayState extends MusicBeatState {
 	function goodNoteHit(note:Note):Void {
 		if (!note.wasGoodHit) {
 			if (!note.isSustainNote) {
-				combo += 1;
-				popUpScore(note.strumTime, note);
+				calculateScore(note.strumTime, note);
 			}
 
 			if (note.noteData >= 0)
