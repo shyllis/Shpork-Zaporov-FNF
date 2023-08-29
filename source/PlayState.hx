@@ -116,15 +116,22 @@ class PlayState extends MusicBeatState {
 		add(bg);
 
 		if (SONG.song.toLowerCase().startsWith('shpork')) {
-			boombox = new FlxSprite(770, 450);
+			boombox = new FlxSprite(360, 710);
 			boombox.frames = Paths.getSparrowAtlas('boombox');
 			boombox.animation.addByPrefix('sex', 'boombox', 24);
 			add(boombox);
 		} else if (SONG.song.toLowerCase().startsWith('govnoed')) {
-			gitara = new FlxSprite(770, 450);
+			gitara = new FlxSprite(330, 600);
 			gitara.frames = Paths.getSparrowAtlas('gitara');
 			gitara.animation.addByPrefix('sex', 'gitara', 24);
 			add(gitara);
+			if (SONG.song.toLowerCase().endsWith('drip')) {
+				boombox = new FlxSprite(800, 710);
+				boombox.frames = Paths.getSparrowAtlas('boombox');
+				boombox.animation.addByPrefix('sex', 'boombox', 24);
+				boombox.flipX = true;
+				add(boombox);
+			}
 		}
 
 		boyfriend = new Boyfriend(770, 450, SONG.player1);
@@ -884,6 +891,18 @@ class PlayState extends MusicBeatState {
 		if (curBeat % 2 == 0) {
 			if (!boyfriend.animation.curAnim.name.startsWith("sing"))
 				boyfriend.playAnim('idle');
+		}
+		
+		if (SONG.song.toLowerCase().startsWith('shpork')) {
+			if (curBeat % 2 == 0)
+				boombox.animation.play('sex');
+		} else if (SONG.song.toLowerCase().startsWith('govnoed')) {
+			if (curBeat % 2 == 0)
+				gitara.animation.play('sex');
+			if (SONG.song.toLowerCase().endsWith('drip')) {
+				if (curBeat % 2 == 0)
+					boombox.animation.play('sex');
+			}
 		}
 	}
 }
