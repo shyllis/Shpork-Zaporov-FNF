@@ -2,8 +2,8 @@ package;
 
 import Conductor.BPMChangeEvent;
 import flixel.addons.ui.FlxUIState;
-import flixel.FlxG;
 #if mobile
+import flixel.FlxG;
 import mobile.flixel.FlxHitbox;
 import mobile.flixel.FlxVirtualPad;
 import flixel.FlxCamera;
@@ -36,7 +36,6 @@ class MusicBeatState extends FlxUIState {
 
 		controls.setVirtualPadUI(virtualPad, DPad, Action);
 		trackedInputsVirtualPad = controls.trackedInputsUI;
-		controls.trackedInputsUI = [];
 	}
 
 	public function addVirtualPadCamera(DefaultDrawTarget:Bool = true):Void
@@ -52,9 +51,6 @@ class MusicBeatState extends FlxUIState {
 
 	public function removeVirtualPad():Void
 	{
-		if (trackedInputsVirtualPad.length > 0)
-			controls.removeVirtualControlsInput(trackedInputsVirtualPad);
-
 		if (virtualPad != null)
 			remove(virtualPad);
 	}
@@ -70,7 +66,6 @@ class MusicBeatState extends FlxUIState {
 
 		controls.setHitBox(hitbox);
 		trackedInputsHitbox = controls.trackedInputsNOTES;
-		controls.trackedInputsNOTES = [];
 	}
 
 	public function addHitboxCamera(DefaultDrawTarget:Bool = true):Void
@@ -86,9 +81,6 @@ class MusicBeatState extends FlxUIState {
 
 	public function removeHitbox():Void
 	{
-		if (trackedInputsHitbox.length > 0)
-			controls.removeVirtualControlsInput(trackedInputsHitbox);
-
 		if (hitbox != null)
 			remove(hitbox);
 	}
@@ -96,14 +88,6 @@ class MusicBeatState extends FlxUIState {
 
 	override function destroy():Void
 	{
-		#if mobile
-		if (trackedInputsHitbox.length > 0)
-			controls.removeVirtualControlsInput(trackedInputsHitbox);
-
-		if (trackedInputsVirtualPad.length > 0)
-			controls.removeVirtualControlsInput(trackedInputsVirtualPad);
-		#end
-
 		super.destroy();
 
 		#if mobile

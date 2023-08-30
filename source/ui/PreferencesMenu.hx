@@ -152,7 +152,10 @@ class PreferencesMenu extends ui.OptionsState.Page
 		super.update(elapsed);
 
 		if (controls.BACK)
+		{
 			FlxG.save.data.downscroll = getPref('downscroll');
+			FlxG.save.flush();
+		}
 
 		items.forEach(function(daItem:TextMenuItem)
 		{
