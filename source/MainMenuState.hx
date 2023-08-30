@@ -22,9 +22,6 @@ class MainMenuState extends MusicBeatState {
 		
 		if (FlxG.sound.music == null)
 			FlxG.sound.playMusic(Paths.music('freakyMenu'));
-		//ez death music fix
-		if (FlxG.sound.music.playing)
-			FlxG.sound.playMusic(Paths.music('freakyMenu'));
 
 		persistentUpdate = persistentDraw = true;
 
