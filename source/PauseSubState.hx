@@ -19,6 +19,8 @@ class PauseSubState extends MusicBeatSubstate {
 	public function new(x:Float, y:Float) {
 		super();
 
+		FlxG.mouse.visible = true;
+
 		pauseMusic = new FlxSound().loadEmbedded(Paths.music('drisnya'), true, true);
 		pauseMusic.volume = 0;
 		pauseMusic.play(false);
@@ -93,8 +95,10 @@ class PauseSubState extends MusicBeatSubstate {
 		var overlapExit:Bool = FlxG.mouse.overlaps(exit);
 
 		if (overlapResume) {
-			if (FlxG.mouse.justPressed) 
+			if (FlxG.mouse.justPressed) {
+				FlxG.mouse.visible = false;
 				close();
+			}
 		}
 
 		if (overlapRestart) {
@@ -107,7 +111,7 @@ class PauseSubState extends MusicBeatSubstate {
 		}
 
 		if (overlapExit) {
-			if (FlxG.mouse.justPressed)
+			if (FlxG.mouse.justPressed) 
 				FlxG.switchState(new MainMenuState());
 		}
 

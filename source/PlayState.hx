@@ -109,26 +109,44 @@ class PlayState extends MusicBeatState {
 		DiscordClient.changePresence(detailsText, SONG.song);
 		#end
 
-		var bg:BGSprite = new BGSprite('bg', 0, -50, 1, 1);
-		bg.setGraphicSize(Std.int(bg.width * 2.4));
-		add(bg);
 
-		if (SONG.song.toLowerCase().startsWith('shpork')) {
-			boombox = new FlxSprite(390, 710);
-			boombox.frames = Paths.getSparrowAtlas('boombox');
-			boombox.animation.addByPrefix('sex', 'boombox', 24);
-			add(boombox);
-		} else if (SONG.song.toLowerCase().startsWith('govnoed')) {
-			gitara = new FlxSprite(330, 580);
-			gitara.frames = Paths.getSparrowAtlas('gitara');
-			gitara.animation.addByPrefix('sex', 'gitara', 24);
-			add(gitara);
-			if (SONG.song.toLowerCase().endsWith('drip')) {
-				boombox = new FlxSprite(800, 710);
+		if (SONG.song.toLowerCase().endsWith('drip')) {
+			var bg:BGSprite = new BGSprite('bgdrip', 200, 400, 1, 1);
+			bg.setGraphicSize(Std.int(bg.width * 2));
+			add(bg);
+
+			if (SONG.song.toLowerCase().startsWith('shpork')) {
+				boombox = new FlxSprite(390, 710);
+				boombox.frames = Paths.getSparrowAtlas('boombox');
+				boombox.animation.addByPrefix('sex', 'boombox', 24);
+				add(boombox);
+			} else if (SONG.song.toLowerCase().startsWith('govnoed')) {
+				gitara = new FlxSprite(330, 580);
+				gitara.frames = Paths.getSparrowAtlas('gitara');
+				gitara.animation.addByPrefix('sex', 'gitara', 24);
+				add(gitara);
+
+				boombox = new FlxSprite(1100, 710);
 				boombox.frames = Paths.getSparrowAtlas('boombox');
 				boombox.animation.addByPrefix('sex', 'boombox', 24);
 				boombox.flipX = true;
 				add(boombox);
+			}
+		} else {
+			var bg:BGSprite = new BGSprite('bg', 0, -50, 1, 1);
+			bg.setGraphicSize(Std.int(bg.width * 2.4));
+			add(bg);
+
+			if (SONG.song.toLowerCase().startsWith('shpork')) {
+				boombox = new FlxSprite(390, 710);
+				boombox.frames = Paths.getSparrowAtlas('boombox');
+				boombox.animation.addByPrefix('sex', 'boombox', 24);
+				add(boombox);
+			} else if (SONG.song.toLowerCase().startsWith('govnoed')) {
+				gitara = new FlxSprite(330, 580);
+				gitara.frames = Paths.getSparrowAtlas('gitara');
+				gitara.animation.addByPrefix('sex', 'gitara', 24);
+				add(gitara);
 			}
 		}
 

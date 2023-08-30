@@ -53,12 +53,11 @@ class DeathState extends MusicBeatState {
 			FlxTween.tween(govno, {alpha: 0}, 1, {onComplete: function(twn:FlxTween) {
 				new FlxTimer().start(1, function(tmr:FlxTimer) {
 					FlxG.sound.play(Paths.sound('vineBoom', 'shared'));
-		
 					govno.alpha = 0;
 					govnotxt.alpha = 1;
 		
 					new FlxTimer().start(1, function(tmr:FlxTimer) {
-						FlxG.sound.play(Paths.sound('vineBoom', 'shared'));
+						FlxG.sound.playMusic(Paths.music('net_govna'));
 						konch.alpha = 1;
 						smile.alpha = 1;
 
@@ -72,16 +71,19 @@ class DeathState extends MusicBeatState {
 
 	override function update(elapsed:Float) {
 		#if mobile
-                var justTouched:Bool = false;
-                for (touch in FlxG.touches.list)
-	                if (touch.justPressed)
-                                justTouched = true;
-                #end
+        var justTouched:Bool = false;
+        for (touch in FlxG.touches.list)
+	        if (touch.justPressed)
+                        justTouched = true;
+        #end
+		
 		if (animfinished && !doNotSpam) {
 			if (controls.ACCEPT #if mobile || justTouched #end)
 				smileAnim();
-			if (controls.BACK #if android || FlxG.android.justReleased.BACK #end)
+			if (controls.BACK #if android || FlxG.android.justReleased.BACK #end) {
+				FlxG.mouse.visible = true;
 				FlxG.switchState(new MainMenuState());
+			}
 		}
 
 		govno.updateHitbox();
@@ -92,10 +94,10 @@ class DeathState extends MusicBeatState {
 
 	function smileAnim() {
 		doNotSpam = true;
-		FlxG.sound.play(Paths.sound('vineBoom', 'shared'));
+		FlxG.sound.playMusic(Paths.music('net_govna_end'));
 		smile.animation.play('smile');
-		FlxTween.tween(smile, {x: smile.x + 30, y: smile.y + 50}, 2);
-		FlxTween.tween(govnotxt, {x: govnotxt.x + 30, y: govnotxt.y + 50}, 2);
+		FlxTween.tween(smile, {y: smile.y + 50}, 2);
+		FlxTween.tween(govnotxt, {y: govnotxt.y + 50}, 2);
 		FlxTween.tween(konch, {alpha: 0}, 2, {onComplete: function(twn:FlxTween) {
 			FlxG.switchState(new PlayState());
 		}});

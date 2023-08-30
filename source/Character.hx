@@ -41,6 +41,19 @@ class Character extends FlxSprite {
 				playAnim('idle');
 
 				flipX = true;
+			case 'dripshpork':
+				frames = Paths.getSparrowAtlas('dripshpork');
+				quickAnimAdd('idle', 'Idle');
+				quickAnimAdd('singUP', 'Up');
+				quickAnimAdd('singLEFT', 'Right');
+				quickAnimAdd('singRIGHT', 'Left');
+				quickAnimAdd('singDOWN', 'Down');
+
+				setGraphicSize(Std.int(width * 1.3));
+
+				loadOffsetFile(curCharacter);
+
+				playAnim('idle');
 		}
 		
 		animation.finish();

@@ -134,6 +134,7 @@ class PlaySelectState extends MusicBeatState {
 			if (FlxG.mouse.justPressed) {
 				stopspamming = true;
 				FlxG.sound.play(Paths.sound('confirmMenu'));
+				FlxG.mouse.visible = false;
 
 				if (!dripMode) {
 					PlayState.SONG = Song.loadFromJson('shpork-zaporov', 'shpork-zaporov');
@@ -149,6 +150,7 @@ class PlaySelectState extends MusicBeatState {
 			if (FlxG.mouse.justPressed) {
 				stopspamming = true;
 				FlxG.sound.play(Paths.sound('confirmMenu'));
+				FlxG.mouse.visible = false;
 
 				if (!dripMode) {
 					PlayState.SONG = Song.loadFromJson('govnoed', 'govnoed');

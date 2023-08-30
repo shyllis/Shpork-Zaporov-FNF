@@ -7,6 +7,7 @@ import openfl.Lib;
 import openfl.display.FPS;
 import openfl.display.Sprite;
 import openfl.events.Event;
+import Init;
 
 class Main extends Sprite {
 	var gameWidth:Int = 960;
@@ -39,6 +40,8 @@ class Main extends Sprite {
 			removeEventListener(Event.ADDED_TO_STAGE, init);
 
 		setupGame();
+		
+		Init.initialize();
 	}
 
 	public static var fpsCounter:FPS;
@@ -53,7 +56,7 @@ class Main extends Sprite {
 		fpsCounter = new FPS(10, 3, 0xFFFFFF);
 		FlxG.stage.addChild(fpsCounter);
 		#end
-		
+
 		if (FlxG.save.data.volume != null)
 			FlxG.sound.volume = FlxG.save.data.volume;
 		if (FlxG.save.data.mute != null)
