@@ -110,17 +110,17 @@ class PlayState extends MusicBeatState {
 		#end
 
 
-		if (SONG.song.toLowerCase().endsWith('drip')) {
+		if (SONG.song.toLowerCase().contains('drip')) {
 			var bg:BGSprite = new BGSprite('bgdrip', 200, 400, 1, 1);
 			bg.setGraphicSize(Std.int(bg.width * 2));
 			add(bg);
 
-			if (SONG.song.toLowerCase().startsWith('shpork')) {
+			if (SONG.song.toLowerCase().contains('zaporov')) {
 				boombox = new FlxSprite(390, 710);
 				boombox.frames = Paths.getSparrowAtlas('boombox');
 				boombox.animation.addByPrefix('sex', 'boombox', 24);
 				add(boombox);
-			} else if (SONG.song.toLowerCase().startsWith('govnoed')) {
+			} else if (SONG.song.toLowerCase().contains('govnoed')) {
 				gitara = new FlxSprite(330, 580);
 				gitara.frames = Paths.getSparrowAtlas('gitara');
 				gitara.animation.addByPrefix('sex', 'gitara', 24);
@@ -137,12 +137,12 @@ class PlayState extends MusicBeatState {
 			bg.setGraphicSize(Std.int(bg.width * 2.4));
 			add(bg);
 
-			if (SONG.song.toLowerCase().startsWith('shpork')) {
+			if (SONG.song.toLowerCase().contains('zaporov')) {
 				boombox = new FlxSprite(390, 710);
 				boombox.frames = Paths.getSparrowAtlas('boombox');
 				boombox.animation.addByPrefix('sex', 'boombox', 24);
 				add(boombox);
-			} else if (SONG.song.toLowerCase().startsWith('govnoed')) {
+			} else if (SONG.song.toLowerCase().contains('govnoed')) {
 				gitara = new FlxSprite(330, 580);
 				gitara.frames = Paths.getSparrowAtlas('gitara');
 				gitara.animation.addByPrefix('sex', 'gitara', 24);
@@ -153,8 +153,10 @@ class PlayState extends MusicBeatState {
 		boyfriend = new Boyfriend(770, 450, SONG.player1);
 		add(boyfriend);
 
-		healthBar = new FlxBar(boyfriend.getGraphicMidpoint().x, boyfriend.y - 80, LEFT_TO_RIGHT, 133, 24, this, 'health', 0, 2);
+		healthBar = new FlxBar(boyfriend.getGraphicMidpoint().x, boyfriend.y - 80, RIGHT_TO_LEFT, 133, 24, this, 'health', 0, 2);
 		healthBar.createImageBar(Paths.image('hpploho', 'shared'), Paths.image('hpklassno', 'shared'));
+		if (SONG.song.toLowerCase().contains('drip'))
+			healthBar.createImageBar(Paths.image('hpploho', 'shared'), Paths.image('hpdrip', 'shared'));
 		healthBar.x -= Std.int(healthBar.width / 2);
 		add(healthBar);
 
@@ -326,7 +328,10 @@ class PlayState extends MusicBeatState {
 				else
 					oldNote = null;
 
-				var swagNote:Note = new Note(daStrumTime, daNoteData, oldNote);
+
+				var swagNote:Note = new Note('arrow_call', daStrumTime, daNoteData, oldNote);
+				if (SONG.song.toLowerCase().contains('drip'))
+					swagNote = new Note('arrow_drip', daStrumTime, daNoteData, oldNote);
 				swagNote.sustainLength = songNotes[2];
 				swagNote.altNote = songNotes[3];
 				swagNote.scrollFactor.set(0, 0);
@@ -338,15 +343,26 @@ class PlayState extends MusicBeatState {
 
 				for (susNote in 0...Math.floor(susLength)) {
 					oldNote = unspawnNotes[Std.int(unspawnNotes.length - 1)];
+					
+					if (SONG.song.toLowerCase().contains('drip')) {
+						var sustainNote:Note = new Note('arrow_drip', daStrumTime + (Conductor.stepCrochet * susNote) + Conductor.stepCrochet, daNoteData, oldNote, true);
+						sustainNote.scrollFactor.set();
+						unspawnNotes.push(sustainNote);
 
-					var sustainNote:Note = new Note(daStrumTime + (Conductor.stepCrochet * susNote) + Conductor.stepCrochet, daNoteData, oldNote, true);
-					sustainNote.scrollFactor.set();
-					unspawnNotes.push(sustainNote);
+						sustainNote.mustPress = gottaHitNote;
 
-					sustainNote.mustPress = gottaHitNote;
+						if (sustainNote.mustPress)
+							sustainNote.x += FlxG.width / 2;
+					} else {
+						var sustainNote:Note = new Note('arrow_call', daStrumTime + (Conductor.stepCrochet * susNote) + Conductor.stepCrochet, daNoteData, oldNote, true);
+						sustainNote.scrollFactor.set();
+						unspawnNotes.push(sustainNote);
 
-					if (sustainNote.mustPress)
-						sustainNote.x += FlxG.width / 2;
+						sustainNote.mustPress = gottaHitNote;
+
+						if (sustainNote.mustPress)
+							sustainNote.x += FlxG.width / 2;
+					}
 				}
 
 				swagNote.mustPress = gottaHitNote;
@@ -373,6 +389,8 @@ class PlayState extends MusicBeatState {
 		for (i in 0...4) {
 			var babyArrow:FlxSprite = new FlxSprite(0, strumLine.y);
 			babyArrow.frames = Paths.getSparrowAtlas('arrow_call');
+			if (SONG.song.toLowerCase().contains('drip'))
+				babyArrow.frames = Paths.getSparrowAtlas('arrow_drip');
 			babyArrow.antialiasing = true;
 			babyArrow.setGraphicSize(Std.int(babyArrow.width * 1.4));
 
@@ -716,6 +734,7 @@ class PlayState extends MusicBeatState {
 		removeHitbox();
 		#end
 
+		FlxG.mouse.visible = true;
 		FlxG.switchState(new MainMenuState());
 	}
 
@@ -907,13 +926,13 @@ class PlayState extends MusicBeatState {
 				boyfriend.playAnim('idle');
 		}
 		
-		if (SONG.song.toLowerCase().startsWith('shpork')) {
+		if (SONG.song.toLowerCase().contains('zaporov')) {
 			if (curBeat % 2 == 0)
 				boombox.animation.play('sex');
-		} else if (SONG.song.toLowerCase().startsWith('govnoed')) {
+		} else if (SONG.song.toLowerCase().contains('govnoed')) {
 			if (curBeat % 2 == 0)
 				gitara.animation.play('sex');
-			if (SONG.song.toLowerCase().endsWith('drip')) {
+			if (SONG.song.toLowerCase().contains('drip')) {
 				if (curBeat % 2 == 0)
 					boombox.animation.play('sex');
 			}

@@ -3,13 +3,16 @@ package;
 import flixel.FlxG;
 import flixel.FlxSprite;
 
+using StringTools;
+
 class NoteSplash extends FlxSprite {
 	var random:Array<String> = ['mocha', 'sperma', 'sopli', 'govno'];
 	public function new(x:Float, y:Float):Void {
 		super(x, y);
 
-		var thing:Int = FlxG.random.int(0, 3);
-		var splash:String = random[thing];
+		var splash:String = random[FlxG.random.int(0, 3)];
+		if (PlayState.SONG.song.toLowerCase().contains('drip'))
+			splash = random[1];
 		frames = Paths.getSparrowAtlas('splashTypes/$splash', 'shared');
 		animation.addByPrefix('splash', 'splash', 24, false);
 		animation.play('splash', true);

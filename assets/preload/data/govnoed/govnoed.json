@@ -1931,12 +1931,11 @@
 				"bpm": 134
 			},
 			{
-				"gfSection": false,
 				"altAnim": false,
 				"typeOfSection": 0,
 				"sectionNotes": [],
 				"bpm": 134,
-				"sectionBeats": 4,
+				"lengthInSteps": 16,
 				"changeBPM": false,
 				"mustHitSection": true
 			}

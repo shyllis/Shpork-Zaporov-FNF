@@ -38,7 +38,7 @@ class Note extends FlxSprite {
 
 	public static var arrowColors:Array<Float> = [1, 1, 1, 1];
 
-	public function new(strumTime:Float, noteData:Int, ?prevNote:Note, ?sustainNote:Bool = false) {
+	public function new(skin:String, strumTime:Float, noteData:Int, ?prevNote:Note, ?sustainNote:Bool = false) {
 		super();
 
 		if (prevNote == null)
@@ -53,12 +53,12 @@ class Note extends FlxSprite {
 
 		this.noteData = noteData;
 
-		frames = Paths.getSparrowAtlas('arrow_call');
+		frames = Paths.getSparrowAtlas(skin);
 
-		animation.addByPrefix('greenScroll', 'up');
-		animation.addByPrefix('redScroll', 'right');
-		animation.addByPrefix('blueScroll', 'down');
-		animation.addByPrefix('purpleScroll', 'left');
+		animation.addByPrefix('greenScroll', 'upscroll');
+		animation.addByPrefix('redScroll', 'rightscroll');
+		animation.addByPrefix('blueScroll', 'downscroll');
+		animation.addByPrefix('purpleScroll', 'leftscroll');
 
 		animation.addByPrefix('end', 'endbad');
 		animation.addByPrefix('hold', 'holdobed');

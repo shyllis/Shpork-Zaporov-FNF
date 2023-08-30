@@ -9,6 +9,7 @@ import flixel.system.FlxSound;
 import flixel.addons.display.FlxBackdrop;
 import flixel.addons.transition.FlxTransitionableState;
 
+using StringTools;
 class PauseSubState extends MusicBeatSubstate {
 	var pauseMusic:FlxSound;
 
@@ -27,7 +28,11 @@ class PauseSubState extends MusicBeatSubstate {
 
 		FlxG.sound.list.add(pauseMusic);
 
-		var bg:FlxSprite = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, 0xFFDCE010);
+		var kakashki = 0xFFDCE010;
+		if (PlayState.SONG.song.toLowerCase().contains('drip'))
+			kakashki = 0xFFFF0033;
+
+		var bg:FlxSprite = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, kakashki);
 		bg.alpha = 0.001;
 		bg.scrollFactor.set();
 		add(bg);
@@ -87,8 +92,8 @@ class PauseSubState extends MusicBeatSubstate {
 	}
 
 	override function update(elapsed:Float) {
-		if (pauseMusic.volume < 0.7)
-			pauseMusic.volume += 0.05 * elapsed;
+		if (pauseMusic.volume < 1)
+			pauseMusic.volume += 0.1 * elapsed;
 
 		var overlapResume:Bool = FlxG.mouse.overlaps(resume);
 		var overlapRestart:Bool = FlxG.mouse.overlaps(restart);
@@ -99,6 +104,11 @@ class PauseSubState extends MusicBeatSubstate {
 				FlxG.mouse.visible = false;
 				close();
 			}
+		}
+
+		if (controls.BACK) {
+			FlxG.mouse.visible = false;
+			close();
 		}
 
 		if (overlapRestart) {

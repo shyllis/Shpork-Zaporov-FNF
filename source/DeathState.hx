@@ -82,7 +82,9 @@ class DeathState extends MusicBeatState {
 				smileAnim();
 			if (controls.BACK #if android || FlxG.android.justReleased.BACK #end) {
 				FlxG.mouse.visible = true;
-				FlxG.sound.music = null;
+				
+				FlxG.sound.music.stop();
+				
 				FlxG.switchState(new MainMenuState());
 			}
 		}
