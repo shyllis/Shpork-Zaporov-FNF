@@ -121,7 +121,7 @@ class PlaySelectState extends MusicBeatState {
 				FlxG.sound.music.volume += 0.5 * FlxG.elapsed;
 		}
 
-		if (controls.BACK) {
+		if (controls.BACK #if android || FlxG.android.justReleased.BACK #end) {
 			FlxG.sound.play(Paths.sound('cancelMenu'));
 			FlxG.switchState(new MainMenuState());
 		}
