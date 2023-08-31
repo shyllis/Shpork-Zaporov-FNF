@@ -2,14 +2,6 @@ package;
 
 import Conductor.BPMChangeEvent;
 import flixel.addons.ui.FlxUIState;
-#if mobile
-import flixel.FlxG;
-import mobile.flixel.FlxHitbox;
-import mobile.flixel.FlxVirtualPad;
-import flixel.FlxCamera;
-import flixel.input.actions.FlxActionInput;
-import flixel.util.FlxDestroyUtil;
-#end
 
 class MusicBeatState extends FlxUIState {
 	private var curStep:Int = 0;
@@ -19,84 +11,9 @@ class MusicBeatState extends FlxUIState {
 	inline function get_controls():Controls
 		return PlayerSettings.player1.controls;
 
-	#if mobile
-	var hitbox:FlxHitbox;
-	var virtualPad:FlxVirtualPad;
-	var trackedInputsHitbox:Array<FlxActionInput> = [];
-	var trackedInputsVirtualPad:Array<FlxActionInput> = [];
-
-	public function addVirtualPad(DPad:FlxDPadMode, Action:FlxActionMode, visible:Bool = true):Void
-	{
-		if (virtualPad != null)
-			removeVirtualPad();
-
-		virtualPad = new FlxVirtualPad(DPad, Action);
-		virtualPad.visible = visible;
-		add(virtualPad);
-
-		controls.setVirtualPadUI(virtualPad, DPad, Action);
-		trackedInputsVirtualPad = controls.trackedInputsUI;
-	}
-
-	public function addVirtualPadCamera(DefaultDrawTarget:Bool = true):Void
-	{
-		if (virtualPad != null)
-		{
-			var camControls:FlxCamera = new FlxCamera();
-			camControls.bgColor.alpha = 0;
-			FlxG.cameras.add(camControls, DefaultDrawTarget);
-			virtualPad.cameras = [camControls];
-		}
-	}
-
-	public function removeVirtualPad():Void
-	{
-		if (virtualPad != null)
-			remove(virtualPad);
-	}
-
-	public function addHitbox(visible:Bool = true):Void
-	{
-		if (hitbox != null)
-			removeHitbox();
-
-		hitbox = new FlxHitbox();
-		hitbox.visible = visible;
-		add(hitbox);
-
-		controls.setHitBox(hitbox);
-		trackedInputsHitbox = controls.trackedInputsNOTES;
-	}
-
-	public function addHitboxCamera(DefaultDrawTarget:Bool = true):Void
-	{
-		if (hitbox != null)
-		{
-			var camControls:FlxCamera = new FlxCamera();
-			camControls.bgColor.alpha = 0;
-			FlxG.cameras.add(camControls, DefaultDrawTarget);
-			hitbox.cameras = [camControls];
-		}
-	}
-
-	public function removeHitbox():Void
-	{
-		if (hitbox != null)
-			remove(hitbox);
-	}
-	#end
-
 	override function destroy():Void
 	{
 		super.destroy();
-
-		#if mobile
-		if (virtualPad != null)
-			virtualPad = FlxDestroyUtil.destroy(virtualPad);
-
-		if (hitbox != null)
-			hitbox = FlxDestroyUtil.destroy(hitbox);
-		#end
 	}
 
 	override function create() {

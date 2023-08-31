@@ -1,4 +1,4 @@
-package mobile.flixel;
+package flixel.ui;
 
 import flixel.FlxCamera;
 import flixel.FlxG;
@@ -227,17 +227,12 @@ class FlxTypedButton<T:FlxSprite> extends FlxSprite implements IFlxInput
 	override public function graphicLoaded():Void
 	{
 		super.graphicLoaded();
-
-		setupAnimation('normal', FlxButton.NORMAL);
-		setupAnimation('highlight', FlxButton.HIGHLIGHT);
-		setupAnimation('pressed', FlxButton.PRESSED);
 	}
 
 	function loadDefaultGraphic():Void
 		loadGraphic('flixel/images/ui/button.png', true, 80, 20);
-
-	function setupAnimation(animationName:String, frameIndex:Int):Void
-	{
+ 
+	function setupAnimation(animationName:String, frameIndex:Int):Void {
 		// make sure the animation doesn't contain an invalid frame
 		frameIndex = Std.int(Math.min(frameIndex, animation.numFrames - 1));
 		animation.add(animationName, [frameIndex]);

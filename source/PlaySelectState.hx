@@ -174,7 +174,7 @@ class PlaySelectState extends MusicBeatState {
 
 	function dripSwitch(toDrip:Bool) {
 		if (toDrip) {
-			FlxG.sound.play(Paths.sound('vineBoom', 'shared'));
+			FlxG.sound.play(Paths.sound('vineBoom', 'preload'));
 			dripMode = true;
 	
 			shpork.loadGraphic(Paths.image('playselect/shporkblack'));
@@ -202,7 +202,7 @@ class PlaySelectState extends MusicBeatState {
 			tweendrip = FlxTween.tween(drip, {x: 90}, 0.5, {ease: FlxEase.cubeInOut});
 			tweendrip2 = FlxTween.tween(drip2, {x: 610}, 0.5, {ease: FlxEase.cubeInOut});
 		} else {
-			FlxG.sound.play(Paths.sound('vineBoom', 'shared'));
+			FlxG.sound.play(Paths.sound('vineBoom', 'preload'));
 			dripMode = false;
 	
 			shpork.loadGraphic(Paths.image('playselect/shpork'));
