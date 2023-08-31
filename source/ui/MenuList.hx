@@ -81,7 +81,7 @@ class MenuTypedList<T:MenuItem> extends FlxTypedGroup<T>
 		var wrapY = wrapMode.match(Vertical | Both);
 		var newIndex = switch(navControls)
 		{
-			case Vertical    : navList(controls.UI_UP_P  , controls.UI_DOWN_P, wrapY);
+			case Vertical    : navList(controls.UI_UP_P, controls.UI_DOWN_P, wrapY);
 			case Horizontal  : navList(controls.UI_LEFT_P, controls.UI_RIGHT_P, wrapX);
 			case Both        : navList(controls.UI_LEFT_P || controls.UI_UP_P, controls.UI_RIGHT_P || controls.UI_DOWN_P, !wrapMode.match(None));
 			
