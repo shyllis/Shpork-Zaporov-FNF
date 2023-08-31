@@ -174,7 +174,7 @@ class PlaySelectState extends MusicBeatState {
 
 	function dripSwitch(toDrip:Bool) {
 		if (toDrip) {
-			FlxG.sound.play(Paths.sound('vineBoom', 'shared'));
+			FlxG.sound.play(Paths.sound('vineBoom', 'preload'));
 			dripMode = true;
 	
 			shpork.loadGraphic(Paths.image('playselect/shporkblack'));
