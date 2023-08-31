@@ -213,10 +213,8 @@ class PlayState extends MusicBeatState {
 
 		startingSong = true;
 
-		#if mobile
 		addHitbox(false);
 		addHitboxCamera(false);
-		#end
 
 		startCountdown();
 
@@ -227,9 +225,7 @@ class PlayState extends MusicBeatState {
 
 	function startCountdown():Void {
 		camHUD.visible = true;
-		#if mobile
 		hitbox.visible = true;
-		#end
 
 		generateStaticArrows(0);
 		generateStaticArrows(1);
@@ -729,10 +725,8 @@ class PlayState extends MusicBeatState {
 		vocals.volume = 0;
 		if (SONG.validScore)
 			Highscore.saveScore(SONG.song, songScore);
-
-		#if mobile
+		
 		removeHitbox();
-		#end
 
 		FlxG.mouse.visible = true;
 		FlxG.switchState(new MainMenuState());
