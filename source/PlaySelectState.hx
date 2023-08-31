@@ -121,7 +121,7 @@ class PlaySelectState extends MusicBeatState {
 				FlxG.sound.music.volume += 0.5 * FlxG.elapsed;
 		}
 
-		if (#if android FlxG.android.justReleased.BACK #else controls.BACK #end) {
+		if (controls.BACK #if android || FlxG.android.justReleased.BACK #end) {
 			FlxG.sound.play(Paths.sound('cancelMenu'));
 			FlxG.switchState(new MainMenuState());
 		}
@@ -202,7 +202,7 @@ class PlaySelectState extends MusicBeatState {
 			tweendrip = FlxTween.tween(drip, {x: 90}, 0.5, {ease: FlxEase.cubeInOut});
 			tweendrip2 = FlxTween.tween(drip2, {x: 610}, 0.5, {ease: FlxEase.cubeInOut});
 		} else {
-			FlxG.sound.play(Paths.sound('vineBoom', 'shared'));
+			FlxG.sound.play(Paths.sound('vineBoom', 'preaload'));
 			dripMode = false;
 	
 			shpork.loadGraphic(Paths.image('playselect/shpork'));

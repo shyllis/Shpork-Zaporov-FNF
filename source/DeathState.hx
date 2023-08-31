@@ -48,11 +48,11 @@ class DeathState extends MusicBeatState {
 		add(smile);
 
 		new FlxTimer().start(4, function(tmr:FlxTimer) {
-			FlxG.sound.play(Paths.sound('vineBoom', 'shared'));
+			FlxG.sound.play(Paths.sound('vineBoom', 'preload'));
 
 			FlxTween.tween(govno, {alpha: 0}, 1, {onComplete: function(twn:FlxTween) {
 				new FlxTimer().start(1, function(tmr:FlxTimer) {
-					FlxG.sound.play(Paths.sound('vineBoom', 'shared'));
+					FlxG.sound.play(Paths.sound('vineBoom', 'preload'));
 					govno.alpha = 0;
 					govnotxt.alpha = 1;
 		
