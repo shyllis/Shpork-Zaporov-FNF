@@ -2,12 +2,14 @@ package;
 
 import Conductor.BPMChangeEvent;
 import flixel.addons.ui.FlxUIState;
+#if mobile
 import flixel.FlxG;
 import mobile.flixel.FlxHitbox;
 import mobile.flixel.FlxVirtualPad;
 import flixel.FlxCamera;
 import flixel.input.actions.FlxActionInput;
 import flixel.util.FlxDestroyUtil;
+#end
 
 class MusicBeatState extends FlxUIState {
 	private var curStep:Int = 0;
@@ -17,6 +19,7 @@ class MusicBeatState extends FlxUIState {
 	inline function get_controls():Controls
 		return PlayerSettings.player1.controls;
 
+	#if mobile
 	var hitbox:FlxHitbox;
 	var virtualPad:FlxVirtualPad;
 	var trackedInputsHitbox:Array<FlxActionInput> = [];
@@ -81,16 +84,19 @@ class MusicBeatState extends FlxUIState {
 		if (hitbox != null)
 			remove(hitbox);
 	}
+	#end
 
 	override function destroy():Void
 	{
 		super.destroy();
 
+		#if mobile
 		if (virtualPad != null)
 			virtualPad = FlxDestroyUtil.destroy(virtualPad);
 
 		if (hitbox != null)
 			hitbox = FlxDestroyUtil.destroy(hitbox);
+		#end
 	}
 
 	override function create() {

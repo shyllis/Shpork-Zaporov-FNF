@@ -10,9 +10,11 @@ import flixel.input.actions.FlxActionSet;
 import flixel.input.gamepad.FlxGamepadButton;
 import flixel.input.gamepad.FlxGamepadInputID;
 import flixel.input.keyboard.FlxKey;
+#if mobile
 import mobile.flixel.FlxButton;
 import mobile.flixel.FlxHitbox;
 import mobile.flixel.FlxVirtualPad;
+#end
 
 /**
  * Since, in many cases multiple actions should use similar keys, we don't want the
@@ -199,6 +201,8 @@ class Controls extends FlxActionSet
 		
 		setKeyboardScheme(scheme, false);
 	}
+
+	#if mobile
 	public var trackedInputsUI:Array<FlxActionInput> = [];
 	public var trackedInputsNOTES:Array<FlxActionInput> = [];
 
@@ -322,6 +326,7 @@ class Controls extends FlxActionSet
 			}
 		}
 	}
+	#end
 
 	override function update()
 	{
