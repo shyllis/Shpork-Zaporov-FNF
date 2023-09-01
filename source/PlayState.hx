@@ -212,11 +212,9 @@ class PlayState extends MusicBeatState {
 		scoreTxt.cameras = [camHUD];
 
 		startingSong = true;
-
-		#if mobile
+		
 		addHitbox(false);
 		addHitboxCamera(false);
-		#end
 
 		startCountdown();
 
@@ -227,9 +225,7 @@ class PlayState extends MusicBeatState {
 
 	function startCountdown():Void {
 		camHUD.visible = true;
-		#if mobile
 		hitbox.visible = true;
-		#end
 
 		generateStaticArrows(0);
 		generateStaticArrows(1);
@@ -536,7 +532,7 @@ class PlayState extends MusicBeatState {
 
 		scoreTxt.text = "Score:" + songScore;
 
-		if (controls.PAUSE #if android || FlxG.android.justReleased.BACK #end && startedCountdown && canPause) {
+		if (controls.PAUSE || FlxG.android.justReleased.BACK && startedCountdown && canPause) {
 			persistentUpdate = false;
 			persistentDraw = true;
 			paused = true;
@@ -730,9 +726,7 @@ class PlayState extends MusicBeatState {
 		if (SONG.validScore)
 			Highscore.saveScore(SONG.song, songScore);
 
-		#if mobile
 		removeHitbox();
-		#end
 
 		FlxG.mouse.visible = true;
 		FlxG.switchState(new MainMenuState());

@@ -19,9 +19,7 @@ using StringTools;
 
 class Init {
     static public function initialize() {
-		#if android
 		FlxG.android.preventDefaultKeys = [BACK];
-		#end
 
 		#if discord_rpc
 		DiscordClient.initialize();

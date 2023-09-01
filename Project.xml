@@ -26,7 +26,7 @@
 
 	<classpath name="source" />
 
-	<assets path="mobile" rename="assets/mobile" if="mobile" /> <!-- in order to not have the mobile assets in another builds -saw -->
+	<assets path="mobile" rename="assets/mobile"/> <!-- in order to not have the mobile assets in another builds -saw -->
 
 	<assets path="assets/preload" rename="assets" exclude="*.ogg" if="web"/>
 	<assets path="assets/preload" rename="assets" exclude="*.mp3" unless="web"/>
@@ -72,20 +72,15 @@
 	<!--Enable this for Nape release builds for a serious peformance improvement-->
 	<haxedef name="NAPE_RELEASE_BUILD" unless="debug" />
 
-	<section if="android">
-		<config>
-			<!--Gradle-->
-			<android gradle-version="7.4.2" gradle-plugin="7.3.1" />
+	<config>
+		<!--Gradle-->
+		<android gradle-version="7.4.2" gradle-plugin="7.3.1" />
+		<!--Target SDK-->
+		<android target-sdk-version="29" if="${lime &lt; 8.1.0}" />
+	</config>
 
-			<!--Target SDK-->
-			<android target-sdk-version="29" if="${lime &lt; 8.1.0}" />
-		</config>
-	</section>
-
-	<section if="ios">
-		<!--Dependency--> 
-		<dependency name="Metal.framework" if="${lime &lt; 8.0.0}" />
-	</section>
+	<!--Dependency--> 
+	<dependency name="Metal.framework" if="${lime &lt; 8.0.0}" />
 
 	<!-- _________________________________ Custom _______________________________ -->
 

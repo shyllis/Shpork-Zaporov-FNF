@@ -197,7 +197,7 @@ class ControlsMenu extends ui.OptionsState.Page
 		super.update(elapsed);
 
 		var controls = PlayerSettings.player1.controls;
-		if (controlGrid.enabled && deviceList != null && deviceListSelected == false && controls.BACK #if android || FlxG.android.justReleased.BACK #end)
+		if (controlGrid.enabled && deviceList != null && deviceListSelected == false && controls.BACK || FlxG.android.justReleased.BACK)
 			goToDeviceList();
 
 		if (prompt.exists)

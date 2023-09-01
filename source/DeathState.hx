@@ -70,15 +70,13 @@ class DeathState extends MusicBeatState {
 	}
 
 	override function update(elapsed:Float) {
-		#if mobile
         var justTouched:Bool = false;
         for (touch in FlxG.touches.list)
 	        if (touch.justPressed)
-                        justTouched = true;
-        #end
+                justTouched = true;
 		
 		if (animfinished && !doNotSpam) {
-			if (controls.ACCEPT #if mobile || justTouched #end)
+			if (controls.ACCEPT || justTouched)
 				smileAnim();
 			if (FlxG.android.justReleased.BACK) {
 				FlxG.mouse.visible = true;
