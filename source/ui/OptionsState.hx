@@ -48,8 +48,9 @@ class OptionsState extends MusicBeatState
 		// disable for intro transition
 		currentPage.enabled = false;
 
-		add(ui.Mobilecontrols.createVirtualPad(FULL, A_B));
-
+		#if mobile
+		addVirtualPad(LEFT_FULL, A_B);
+		#end
 		super.create();
 	}
 

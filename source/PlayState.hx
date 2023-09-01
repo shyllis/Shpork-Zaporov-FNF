@@ -1,6 +1,5 @@
 package;
 
-import ui.Mobilecontrols;
 import Section.SwagSection;
 import Song.SwagSong;
 import flixel.FlxCamera;
@@ -206,10 +205,6 @@ class PlayState extends MusicBeatState {
 		scoreTxt.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		scoreTxt.scrollFactor.set();
 		add(scoreTxt);
-		
-		var mcontrols = new Mobilecontrols();
-		Mobilecontrols.addPadCamera(mcontrols);
-		add(mcontrols);
 
 		grpNoteSplashes.cameras = [camHUD];
 		strumLineNotes.cameras = [camHUD];
@@ -217,6 +212,11 @@ class PlayState extends MusicBeatState {
 		scoreTxt.cameras = [camHUD];
 
 		startingSong = true;
+
+		#if mobile
+		addHitbox(false);
+		addHitboxCamera(false);
+		#end
 
 		startCountdown();
 
@@ -227,6 +227,9 @@ class PlayState extends MusicBeatState {
 
 	function startCountdown():Void {
 		camHUD.visible = true;
+		#if mobile
+		hitbox.visible = true;
+		#end
 
 		generateStaticArrows(0);
 		generateStaticArrows(1);
@@ -236,7 +239,6 @@ class PlayState extends MusicBeatState {
 		var swagCounter:Int = 0;
 
 		startTimer.start(Conductor.crochet / 1000, function(tmr:FlxTimer) {
-			trace('sex');
 			if (swagCounter % 2 == 0) {
 				if (!boyfriend.animation.curAnim.name.startsWith("sing"))
 					boyfriend.playAnim('idle');
@@ -727,6 +729,10 @@ class PlayState extends MusicBeatState {
 		vocals.volume = 0;
 		if (SONG.validScore)
 			Highscore.saveScore(SONG.song, songScore);
+
+		#if mobile
+		removeHitbox();
+		#end
 
 		FlxG.mouse.visible = true;
 		FlxG.switchState(new MainMenuState());
